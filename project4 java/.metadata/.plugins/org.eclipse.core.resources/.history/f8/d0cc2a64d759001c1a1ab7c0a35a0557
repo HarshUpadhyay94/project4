@@ -1,0 +1,38 @@
+package in.co.sunrays.test;
+
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import in.co.sunrays.bean.FacultyBean;
+import in.co.sunrays.model.FacultyModel;
+
+public class FacultyModelTest {
+	
+	public static void main(String[] args) throws Exception {
+		testAdd();
+	}
+	public static void testAdd() throws Exception {
+	
+		FacultyBean fb = new FacultyBean();
+		FacultyModel fm = new FacultyModel();
+		SimpleDateFormat sdf = new SimpleDateFormat("MM/DD/YYYY");
+		fb.setId(1);
+		fb.setFirst_Name("RISHABH");
+		fb.setLast_Name("BAJAJ");
+		fb.setGender("MALE");
+		fb.setCollege_id(1);
+		fb.setCourse_id(1);
+		fb.setDOJ(sdf.parse("12/12/2008"));
+		fb.setSubject_id(1);
+		fb.setQualification("MBA");
+		fb.setMobile_No("9876543211");
+		fb.setCreatedDatetime(new Timestamp(new Date().getTime()));
+		fb.setModifiedDatetime(new Timestamp(new Date().getTime()));
+		System.out.println("ftmodelnhichala");
+		long pk= fm.add(fb);
+
+	}
+
+
+}

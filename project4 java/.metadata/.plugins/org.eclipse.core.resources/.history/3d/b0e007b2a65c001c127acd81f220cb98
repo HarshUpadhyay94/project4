@@ -1,0 +1,17 @@
+0:0:0:0:0:0:0:1 - - [03/Jul/2021:13:21:20 +0530] "GET / HTTP/1.1" 200 11415
+0:0:0:0:0:0:0:1 - - [03/Jul/2021:13:21:20 +0530] "GET /tomcat.png HTTP/1.1" 200 5103
+0:0:0:0:0:0:0:1 - - [03/Jul/2021:13:21:20 +0530] "GET /tomcat.css HTTP/1.1" 200 5931
+0:0:0:0:0:0:0:1 - - [03/Jul/2021:13:21:20 +0530] "GET /bg-nav.png HTTP/1.1" 200 1401
+0:0:0:0:0:0:0:1 - - [03/Jul/2021:13:21:20 +0530] "GET /bg-upper.png HTTP/1.1" 200 3103
+0:0:0:0:0:0:0:1 - - [03/Jul/2021:13:21:20 +0530] "GET /bg-button.png HTTP/1.1" 200 713
+0:0:0:0:0:0:0:1 - - [03/Jul/2021:13:21:20 +0530] "GET /bg-middle.png HTTP/1.1" 200 1918
+0:0:0:0:0:0:0:1 - - [03/Jul/2021:13:21:20 +0530] "GET /asf-logo-wide.svg HTTP/1.1" 200 27530
+0:0:0:0:0:0:0:1 - - [03/Jul/2021:13:21:20 +0530] "GET /favicon.ico HTTP/1.1" 200 21630
+0:0:0:0:0:0:0:1 - - [03/Jul/2021:13:21:46 +0530] "GET /WebApplicationProj HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [03/Jul/2021:13:21:47 +0530] "GET /WebApplicationProj/ HTTP/1.1" 200 463
+0:0:0:0:0:0:0:1 - - [03/Jul/2021:13:21:56 +0530] "GET /WebApplicationProj/LoginView.jsp HTTP/1.1" 200 749
+0:0:0:0:0:0:0:1 - - [03/Jul/2021:13:22:02 +0530] "GET /WebApplicationProj/LoginCtl?user=admin&pwd=admin HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [03/Jul/2021:13:22:03 +0530] "GET /WebApplicationProj/WelcomeView.jsp HTTP/1.1" 200 813
+0:0:0:0:0:0:0:1 - - [03/Jul/2021:13:22:09 +0530] "GET /WebApplicationProj/Logout.jsp HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [03/Jul/2021:13:22:09 +0530] "GET /WebApplicationProj/LoginView.jsp HTTP/1.1" 200 749
+0:0:0:0:0:0:0:1 - - [03/Jul/2021:13:22:23 +0530] "GET /WebApplicationProj/WelcomeCtl.do HTTP/1.1" 200 847

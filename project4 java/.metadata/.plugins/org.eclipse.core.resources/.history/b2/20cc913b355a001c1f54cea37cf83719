@@ -1,0 +1,10 @@
+package in.co.sunrays.model;
+
+public class TimetableModel {
+
+	public void add() {
+		
+		
+		
+	}
+}

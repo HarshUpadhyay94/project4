@@ -1,0 +1,71 @@
+package in.co.sunrays.test;
+
+import java.sql.Timestamp;
+import java.util.Date;
+
+import in.co.sunrays.bean.CourseBean;
+import in.co.sunrays.model.CourseModel;
+
+public class CourseModelTest {
+
+	public static void main(String[] args) {
+		//testAdd();
+		testUpdate();
+	}
+
+
+	private static void testAdd() {
+		try {
+			CourseBean bean = new CourseBean();
+			CourseModel model = new CourseModel();
+
+			bean.setCourse_Name("BE");
+			bean.setDescription("Hindi_Expertization");
+			bean.setDuration("sdsad");
+			bean.setCreatedBy("Admin");
+			bean.setModifiedBy("Admin");
+			bean.setCreatedDatetime(new Timestamp(new Date().getTime()));
+			bean.setModifiedDatetime(new Timestamp(new Date().getTime()));
+
+			long pk = model.add(bean);
+
+			System.out.println("Test Add Success");
+
+			CourseBean bean1 = model.findByPK(pk);
+
+			if (bean1 == null) {
+				System.out.println("Test add fail");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	private static void testUpdate() {
+		try {
+			CourseBean bean = new CourseBean();
+			CourseModel model = new CourseModel();
+
+			bean.setCourse_Name("BE");
+			bean.setDescription("Hindi_Expertization");
+			bean.setDuration("sdsad");
+			bean.setCreatedBy("Admin");
+			bean.setModifiedBy("Admin");
+			bean.setCreatedDatetime(new Timestamp(new Date().getTime()));
+			bean.setModifiedDatetime(new Timestamp(new Date().getTime()));
+
+			model.update(bean);
+
+			System.out.println("Test Add Success");
+
+			CourseBean bean1 = model.findByPK(pk);
+
+			if (bean1 == null) {
+				System.out.println("Test add fail");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}

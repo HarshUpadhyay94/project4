@@ -1,0 +1,31 @@
+package in.co.sunrays.test;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import in.co.sunrays.bean.TimetableBean;
+import in.co.sunrays.exception.DuplicateRecordException;
+import in.co.sunrays.model.TimetableModel;
+
+public class TimetableModelTest {
+	
+	public static void main(String[] args) throws Exception, Exception {
+	testAdd();
+	}
+	public static void testAdd() throws Exception, DuplicateRecordException {
+		
+		TimetableBean tb = new TimetableBean();
+		TimetableModel tm = new TimetableModel();
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		Date dt = new Date();
+		
+		tb.setCourse_Name("Coghhkjgfmmerce");
+		tb.setCourse_Id(1);
+		tb.setSubject_Name("maths");
+		tb.setSubject_Id(1);
+		tb.setExam_Date(sdf.parse("03/03/2012"));
+		tb.setExam_Time("4:00");
+		tm.add(tb);
+		System.out.println("dsfdas");
+
+	}
+}

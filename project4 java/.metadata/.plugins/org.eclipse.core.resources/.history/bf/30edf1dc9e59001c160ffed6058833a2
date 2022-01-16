@@ -1,0 +1,86 @@
+package in.co.sunrays.test;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.Timestamp;
+import java.util.Date;
+
+import in.co.sunrays.bean.SubjectBean;
+import in.co.sunrays.bean.StudentBean;
+import in.co.sunrays.bean.SubjectBean;
+import in.co.sunrays.exception.ApplicationException;
+import in.co.sunrays.model.CollegeModel;
+import in.co.sunrays.model.SubjectModel;
+import in.co.sunrays.util.JDBCDataSource;
+
+public class SubjectModelTest {
+	public static void main(String[] args) throws Exception {
+		//testAdd();
+		//testdelete();
+		testupdate();
+	}
+	
+
+	public static void testAdd() throws Exception {
+		try {
+			SubjectBean bean = new SubjectBean();
+			SubjectModel model=new SubjectModel();
+			bean.setSubject_Name("chemistry");
+			bean.setCourse_Name("bsc");
+			bean.setCourse_Id(301);
+			bean.setDescription("dfsda");
+			bean.setCreatedBy("Admin");
+			bean.setModifiedBy("Admin");
+			bean.setCreatedDatetime(new Timestamp(new Date().getTime()));
+			bean.setModifiedDatetime(new Timestamp(new Date().getTime()));
+			long pk = model.add(bean);
+			SubjectBean addedBean = model.findByPK(pk);
+			if (addedBean == null) {
+				System.out.println("Test add fail");
+			}
+		} catch (ApplicationException e) {
+			e.printStackTrace();
+		}
+	}
+			public static void testdelete() throws Exception {
+				
+				try{
+					
+				SubjectBean bean = new SubjectBean();
+				SubjectModel model=new SubjectModel();
+				bean.setId(1L);
+				model.delete(bean);
+				SubjectBean addedBean = model.findByPK(1L);
+				if (addedBean == null) {
+					System.out.println("Test add fail");
+				}
+			} catch (ApplicationException e) {
+				e.printStackTrace();
+			}
+	}
+
+			private static void testupdate() {
+				
+				try {
+					SubjectBean bean = new SubjectBean();
+					SubjectModel model=new SubjectModel();
+					bean.setSubject_Name("chemistry");
+					bean.setCourse_Name("bsc");
+					bean.setCourse_Id(301);
+					bean.setDescription("dfsda");
+					bean.setCreatedBy("Admin");
+					bean.setModifiedBy("Admin");
+					bean.setCreatedDatetime(new Timestamp(new Date().getTime()));
+					bean.setModifiedDatetime(new Timestamp(new Date().getTime()));
+					long pk = model.add(bean);
+					SubjectBean addedBean = model.findByPK(pk);
+					if (addedBean == null) {
+						System.out.println("Test add fail");
+					}
+				} catch (ApplicationException e) {
+					e.printStackTrace();
+				}
+			}
+			}
+
+}

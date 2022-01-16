@@ -1,0 +1,108 @@
+<%@page import="in.co.sunrays.controller.ORSView"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@page import="in.co.sunrays.controller.CollegeCtl"%>
+<%@page import="in.co.sunrays.util.DataUtility"%>
+<%@page import="in.co.sunrays.util.ServletUtility"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<link rel="icon" type="image/png"
+		href="<%=ORSView.APP_CONTEXT%>/img/logo.png size =16*16" />
+	<title>College Registration Page</title>
+	<form action="CollegeCtl" method="post">
+		<%@ include file="Header.jsp"%>
+
+		<jsp:useBean id="bean" class="in.co.sunrays.bean.CollegeBean"
+			scope="request"></jsp:useBean>
+
+		<center>
+
+			<%
+				if (bean != null && bean.getId() > 0) {
+			%><tr>
+				<th><font>Update College</font></th>
+			</tr>
+			<%
+				} else {
+			%>
+			<tr>
+				<th><font>Add College</font></th>
+			</tr>
+			<%
+				}
+			%>
+			<H2>
+				<font color="green"> <%=ServletUtility.getSuccessMessage(request)%></font>
+				<font color="red"><%=ServletUtility.getErrorMessage(request)%>></font>
+			</H2>
+
+			<input type="hidden" name="id" value="<%=bean.getId()%>"> 
+			<input type="hidden" name="createdBy" value="<%=bean.getCreatedBy()%>">
+			<input type= "hidden" name= "modifiedby" value=<%=bean.getModifiedBy() %>>
+			<table>
+				<h1>Add College</h1>
+				<tr>
+					<th align="left">Name<span style="color: red">*</span></th>
+					<td><input type="text" name="name" placeholder="Enter Name"
+						value="<%=DataUtility.getStringData(bean.getName())%>"></td>
+					<td style="position: fixed;"><font><%=ServletUtility.getErrorMessage("name" , request)%></font></td>
+				</tr>
+
+				<tr>
+					<th align="left">Address<span style="color: red">*</span></th>
+					<td><input type="text" name="address"
+						placeholder="Enter Address" value="<%= DataUtility.getStringData(bean.getAddress())%>"></td>
+					<td style="":fixed;"></td>
+				</tr>
+
+				<tr>
+					<th align="left">State<span style="color: red">*</span></th>
+					<td><input type="text" name="state" placeholder="Enter State"
+						value="<%=DataUtility.getStringData(bean.getState()) %>"></td>
+					<td style="":fixed;"></td>
+				</tr>
+
+				<tr>
+					<th align="left">City<span style="color: red">*</span></th>
+					<td><input type="text" name="city" placeholder="Enter City"
+						value="<%= DataUtility.getStringData(bean.getCity())%>"></td>
+					<td style="":fixed;"></td>
+				</tr>
+
+				<tr>
+					<th align="left">Phone No.<span style="color: red">*</span></th>
+					<td><input type="text" name="phoneno"
+						placeholder="Enter Phone NO" value="<%=DataUtility.getStringData(bean.getPhoneNo())%>>"></td>
+					<td style="":fixed;"></td>
+				</tr>
+				<tr>
+					<th>
+						<%
+							if (bean.getId() > 0) {
+						%>
+					
+					<td colspan="2">&nbsp; &emsp; <input type="submit"
+						name="operation" value="<%=CollegeCtl.OP_UPDATE%>"> &nbsp;
+						&nbsp; <input type="submit" name="operation"
+						value="<%=CollegeCtl.OP_CANCEL%>"></td>
+					<%
+						} else {
+					%>
+					<td colspan="2">&nbsp; &emsp; <input type="submit"
+						name="operation" value="<%=CollegeCtl.OP_SAVE%>"> &nbsp;
+						&nbsp; <input type="submit" name="operation"
+						value="<%=CollegeCtl.OP_RESET%>"></td>
+					<%
+						}
+					%></th>
+				</tr>
+			</table>
+		</center>
+	</form>
+</body>
+</html>

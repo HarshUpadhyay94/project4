@@ -1,0 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<center>
+		<img alt="" src="E:/rays.png">
+	</center>
+	<a href="Logout.jsp">Logout</a><br> 
+	<HR>
+	<%
+		String user = (String)session.getAttribute("username");
+		out.println("Welcome "+user);
+	%>
+	<HR>
+	
+	<a href="">Home</a> | 
+	<a href="">About Us</a> | 
+	<a href="Contact.jsp">Contact Us</a> | 
+	<a href="">Marksheet</a> |
+	<a href="">MarksheetList</a> |  
+</body>
+</html>

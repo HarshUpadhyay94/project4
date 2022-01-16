@@ -1,0 +1,15 @@
+0:0:0:0:0:0:0:1 - - [18/Dec/2020:18:33:40 +0530] "GET / HTTP/1.1" 200 11415
+0:0:0:0:0:0:0:1 - - [18/Dec/2020:18:33:40 +0530] "GET /tomcat.css HTTP/1.1" 200 5931
+0:0:0:0:0:0:0:1 - - [18/Dec/2020:18:33:40 +0530] "GET /tomcat.png HTTP/1.1" 200 5103
+0:0:0:0:0:0:0:1 - - [18/Dec/2020:18:33:40 +0530] "GET /bg-middle.png HTTP/1.1" 200 1918
+0:0:0:0:0:0:0:1 - - [18/Dec/2020:18:33:40 +0530] "GET /bg-upper.png HTTP/1.1" 200 3103
+0:0:0:0:0:0:0:1 - - [18/Dec/2020:18:33:40 +0530] "GET /bg-nav.png HTTP/1.1" 200 1401
+0:0:0:0:0:0:0:1 - - [18/Dec/2020:18:33:40 +0530] "GET /bg-button.png HTTP/1.1" 200 713
+0:0:0:0:0:0:0:1 - - [18/Dec/2020:18:33:40 +0530] "GET /asf-logo-wide.svg HTTP/1.1" 200 27530
+0:0:0:0:0:0:0:1 - - [18/Dec/2020:18:33:46 +0530] "GET /WebApplication HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [18/Dec/2020:18:33:48 +0530] "GET /WebApplication/ HTTP/1.1" 200 196
+0:0:0:0:0:0:0:1 - - [18/Dec/2020:18:33:51 +0530] "GET /WebApplication/LoginView.jsp HTTP/1.1" 200 941
+0:0:0:0:0:0:0:1 - - [18/Dec/2020:18:33:56 +0530] "GET /WebApplication/LoginCtl?user=admin&pwd=admin&jsessionid=8D65A8273688143F2150134589D2AE70 HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [18/Dec/2020:18:33:56 +0530] "GET /WebApplication/WelcomeView.jsp HTTP/1.1" 200 832
+0:0:0:0:0:0:0:1 - - [18/Dec/2020:18:34:27 +0530] "GET /WebApplication/Logout.jsp HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [18/Dec/2020:18:34:27 +0530] "GET /WebApplication/LoginView.jsp HTTP/1.1" 200 941

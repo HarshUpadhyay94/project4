@@ -1,0 +1,44 @@
+package in.co.sunrays.controller;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import in.co.sunrays.bean.BaseBean;
+
+public class LoginCtl extends BaseCtl {
+ 
+	private static final long serialVersionUID = 1L;
+	public static final String OP_REGISTER = "Register";
+	public static final String OP_SIGN_IN = "SignIn";
+	public static final String OP_SIGN_UP = "SignUp";
+	public static final String OP_LOG_OUT = "logout";
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	
+		super.doGet(req, resp);
+		
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		super.doPost(req, resp);
+		
+	}
+	
+	@Override
+	protected BaseBean populateBean(HttpServletRequest request) {
+	
+		return super.populateBean(request);
+		
+	}
+	
+	@Override
+	protected String getView() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+}

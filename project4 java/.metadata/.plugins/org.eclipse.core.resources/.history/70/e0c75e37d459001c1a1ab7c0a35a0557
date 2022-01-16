@@ -1,0 +1,147 @@
+package in.co.sunrays.model;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import in.co.sunrays.bean.BaseBean;
+import in.co.sunrays.bean.CollegeBean;
+import in.co.sunrays.bean.CourseBean;
+import in.co.sunrays.bean.FacultyBean;
+import in.co.sunrays.bean.SubjectBean;
+import in.co.sunrays.exception.ApplicationException;
+import in.co.sunrays.exception.DatabaseException;
+import in.co.sunrays.util.JDBCDataSource;
+
+public class FacultyModel  {
+
+	public Integer nextPK() throws DatabaseException {
+		// log.debug("Model nextPK Started");
+		Connection conn = null;
+		int pk = 0;
+		try {
+			conn = JDBCDataSource.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement("SELECT MAX(ID) FROM ST_FACULTY");
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				pk = rs.getInt(1);
+			}
+			rs.close();
+
+		} catch (Exception e) {
+			// log.error("Database Exception..", e);
+			throw new DatabaseException("Exception : Exception in getting PK");
+		} finally {
+			JDBCDataSource.closeConnection(conn);
+		}
+		// log.debug("Model nextPK End");
+		return pk + 1;
+	}
+
+	public long add(FacultyBean fb) throws Exception {
+		// log.debug("Model add Started");
+		Connection conn = null;
+
+		int pk = 0;
+
+		CollegeModel cm = new CollegeModel();
+		CollegeBean cb = cm.findByPK(fb.getCollege_id());
+		String collegeName = cb.getName();
+
+		CourseModel crsm = new CourseModel();
+		CourseBean crsb = crsm.findByPK(fb.getCourse_id());
+		String courseName = crsb.getCourse_Name();
+
+		SubjectModel sm = new SubjectModel();
+		SubjectBean sb = sm.findByPK(fb.getSubject_id());
+		String subjectname = sb.getSubject_Name();
+
+		try {
+			conn = JDBCDataSource.getConnection();
+			conn.setAutoCommit(false); // Begin transaction
+			PreparedStatement ps = conn
+					.prepareStatement("INSERT INTO ST_FACULTY VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+			ps.setInt(1, nextPK());
+			ps.setString(2, fb.getFirst_Name());
+			ps.setString(3, fb.getLast_Name());
+			ps.setString(4, fb.getGender());
+			ps.setDate(5, new java.sql.Date(fb.getDOJ().getTime()));
+			ps.setString(6, fb.getQualification());
+			ps.setString(7, fb.getEmail_id());
+			ps.setString(8, fb.getMobile_No());
+			ps.setInt(9, fb.getCollege_id());
+			ps.setString(10, collegeName);
+			ps.setInt(11, fb.getCourse_id());
+			ps.setString(12, courseName);
+			ps.setInt(13, fb.getSubject_id());
+			ps.setString(14, subjectname);
+			ps.setString(15, fb.getCreatedBy());
+			ps.setString(16, fb.getModifiedBy());
+			ps.setTimestamp(17, fb.getCreatedDatetime());
+			ps.setTimestamp(18, fb.getModifiedDatetime());
+
+			ps.executeUpdate();
+			conn.commit(); // End transaction
+			ps.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+			// log.error("Database Exception..", e);
+			e.printStackTrace();
+			try {
+				conn.rollback();
+			} catch (Exception ex) {
+				ex.printStackTrace();
+				throw new ApplicationException("Exception : add rollback exception " + ex.getMessage());
+			}
+			e.printStackTrace();
+			throw new ApplicationException("Exception : Exception in add Faculty");
+		} finally {
+			System.out.println("INSERTION DONE");
+			JDBCDataSource.closeConnection(conn);
+		}
+		// log.debug("Model add End");
+	} return fb;
+	
+	public FacultyBean findByPK(int pk) throws ApplicationException {
+		// log.debug("Faculty Model findByPK method Started");
+		StringBuffer sql = new StringBuffer("SELECT * FROM ST_FACULTY WHERE ID=?");
+		Connection conn = null;
+		FacultyBean fb = null;
+		try {
+			conn = JDBCDataSource.getConnection();
+			PreparedStatement ps = conn.prepareStatement(sql.toString());
+			ps.setInt(1, pk);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				fb = new FacultyBean();
+				fb.setId(rs.getInt(1));
+				fb.setFirst_Name(rs.getString(2));
+				fb.setLast_Name(rs.getString(3));
+				fb.setGender(rs.getString(4));
+				fb.setDOJ(rs.getDate(5));
+				fb.setQualification(rs.getString(6));
+				fb.setEmail_id(rs.getString(7));
+				fb.setMobile_No(rs.getString(8));
+				fb.setCollege_id(rs.getInt(9));
+				fb.setCollege_Name(rs.getString(10));
+				fb.setCourse_id(rs.getInt(11));
+				fb.setCourse_Name(rs.getString(12));
+				fb.setSubject_id(rs.getInt(13));
+				fb.setSubject_Name(rs.getString(14));
+				fb.setCreatedBy(rs.getString(15));
+				fb.setModifiedBy(rs.getString(16));
+				fb.setCreatedDatetime(rs.getTimestamp(17));
+				fb.setModifiedDatetime(rs.getTimestamp(18));
+
+			}
+			rs.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		} finally {
+			JDBCDataSource.closeConnection(conn);
+		}
+		// log.debug("Faculty Model FindByPK method end");
+		return fb;
+	}
+}

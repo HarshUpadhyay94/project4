@@ -1,0 +1,58 @@
+package in.co.sunrays.test;
+
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.util.Date;
+
+import in.co.sunrays.bean.RoleBean;
+import in.co.sunrays.exception.ApplicationException;
+import in.co.sunrays.exception.DuplicateRecordException;
+import in.co.sunrays.model.RoleModel;
+
+public class RoleModelTest {
+public static void main(String[] args) throws Exception {
+		testAdd();
+		
+		
+}
+	public static void testAdd() throws Exception {
+        try {
+            RoleBean bean = new RoleBean();
+            RoleModel model=new RoleModel();
+            // SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+            // bean.setId(1L);
+            bean.setName("shivam");
+            bean.setDescription("kumar");
+            bean.setCreatedBy("Admin");
+            bean.setModifiedBy("Admin");
+            bean.setCreatedDatetime(new Timestamp(new Date().getTime()));
+			bean.setModifiedDatetime(new Timestamp(new Date().getTime()));
+			
+            long pk = model.add(bean);
+            RoleBean addedbean = model.findByPK(pk);
+            if (addedbean == null) {
+                System.out.println("Test add fail");
+            }
+        } catch (ApplicationException e) {
+            e.printStackTrace();
+        } catch (DuplicateRecordException e) {
+            e.printStackTrace();
+        }
+	}
+	public static void testDelete() {
+
+        try {
+            RoleBean bean = new RoleBean();
+            RoleModel model=new RoleModel();
+            long pk = 3L;
+            bean.setId(1);
+            model.delete(bean);
+            RoleBean deletedbean = model.findByPK(1);
+            if (deletedbean != null) {
+                System.out.println("Test Delete fail");
+            }
+        } catch (ApplicationException e) {
+            e.printStackTrace();
+        }
+    }
+	}

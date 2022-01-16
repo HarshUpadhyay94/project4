@@ -1,0 +1,16 @@
+package in.co.sunrays.test;
+
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import in.co.sunrays.bean.UserBean;
+import in.co.sunrays.exception.ApplicationException;
+import in.co.sunrays.exception.DuplicateRecordException;
+import in.co.sunrays.exception.RecordNotFoundException;
+import in.co.sunrays.model.UserModel;
+
+	public class UserModelTest {
+
+
+		
+	}

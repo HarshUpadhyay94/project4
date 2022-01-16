@@ -1,0 +1,22 @@
+package in.co.sunrays.controller;
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import in.co.sunrays.bean.BaseBean;
+import in.co.sunrays.bean.CollegeBean;
+import in.co.sunrays.exception.ApplicationException;
+import in.co.sunrays.exception.DuplicateRecordException;
+import in.co.sunrays.model.CollegeModel;
+import in.co.sunrays.util.DataUtility;
+import in.co.sunrays.util.DataValidator;
+import in.co.sunrays.util.PropertyReader;
+import in.co.sunrays.util.ServletUtility;
+
+public class CollegeCtl {
+
+	
+}
